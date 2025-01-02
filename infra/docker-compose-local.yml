@@ -1,0 +1,12 @@
+services:
+  agent-cmd-api:
+    environment:
+      - "SPRING_PROFILES_ACTIVE=local"  # Local profile
+    ports:
+      - "9090:9090"  # Local port mapping
+
+  agent-query-api:
+    environment:
+      - "SPRING_PROFILES_ACTIVE=local"  # Local profile
+    ports:
+      - "9091:9091"  # Local port mapping

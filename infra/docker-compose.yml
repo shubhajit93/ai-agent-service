@@ -1,0 +1,27 @@
+services:
+  agent-cmd-api:
+    build:
+      context: ..
+      dockerfile: ./agent.cmd.api/Dockerfile
+    ports:
+      - "9090:9090" # Expose agent.cmd.api on port 8081
+    networks:
+      - axon-server_axon-test
+    profiles:
+      - cmd
+
+  agent-query-api:
+    build:
+      context: ..
+      dockerfile: ./agent.query.api/Dockerfile
+#    network_mode: host
+    ports:
+      - "9091:9091" # Expose agent.query.api on port 8082
+    networks:
+      - axon-server_axon-test
+    profiles:
+      - query
+
+networks:
+  axon-server_axon-test:
+    external: true
